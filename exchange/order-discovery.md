@@ -2,121 +2,53 @@
 
 ## Search orders
 
-{% hint style="info" %}
-In order to get latest information about API, please follow [OpenAPI doc](https://api-staging.rarible.com/protocol/ethereum/order/indexer/v0.1/swagger/webjars/swagger-ui/index.html?configUrl=/protocol/ethereum/order/indexer/v0.1/swagger/v3/api-docs/swagger-config#/order-controller/searchOrders)
-{% endhint %}
+Example of how to query orders for all NFTs in a collection
 
-https://api-staging.rarible.com/protocol/ethereum/order/indexer/v0.1/orders/search
-
-Query parameters:
-
-* size - how many items you want to get
-* continuation - send this parameter to fetch next portion of data \(you can find continuation value in the server response\)
-
-Body: it's a json with filter.
-
-```typescript
-type Address = string // hex string with address
-type TokenId = string // hex string or string with bigint
-type BaseOrderFilter = { origin: Address } // origin - is the address of an agent who submitted the order
-type OrderFilter = BaseOrderFilter & ( 
-    { "@type": "sell" } // all orders for selling NFTs
-  | { "@type": "sell_by_maker", maker: Address } // orders for selling NFTs (which are sold by selected user - maker)
-  | { "@type": "sell_by_item", token: Address, tokenId: TokenId } // orders for selling selected NFT 
-  | { "@type": "sell_by_collection", collection: Address } // what NFTs are sold from specific collection
-  | { "@type": "bid_by_item", token: Address, tokenId: TokenId } // bids for specific NFT
-  | { "@type": "bid_by_maker", maker } // bids by maker - you can find your own bids for example
-)
+```
+curl --location --request GET 'https://api-staging.rarible.com/protocol/v0.1/ethereum/order/orders/sell/byCollection?collection=0xcfa14f6DC737b8f9e0fC39f05Bf3d903aC5D4575&sort=LAST_UPDATE'
 ```
 
-Here is an example with curl:
-
-```text
-curl \
-  --header "Content-Type: application/json" \
-  --request POST \
-  --data '{ "@type": "sell" }' \
-  https://api-staging.rarible.com/protocol/ethereum/order/indexer/v0.1/orders/search
-```
-
-The other option is to find the order using a get request with the order hash \(Which is returned when the order is created\).
-
-{% api-method method="get" host="http://api-staging.rarible.com/protocol/ethereum/order/indexer/v1/orders/" path=":hash" %}
-{% api-method-summary %}
-Get Order
-{% endapi-method-summary %}
-
-{% api-method-description %}
-Searching for an order via the orders API
-{% endapi-method-description %}
-
-{% api-method-spec %}
-{% api-method-request %}
-{% api-method-query-parameters %}
-{% api-method-parameter name="hash" type="string" required=true %}
-Order hash
-{% endapi-method-parameter %}
-{% endapi-method-query-parameters %}
-{% endapi-method-request %}
-
-{% api-method-response %}
-{% api-method-response-example httpCode=200 %}
-{% api-method-response-example-description %}
-
-{% endapi-method-response-example-description %}
-
+Response
 ```
 {
-  "maker": "string",
-  "make": {
-    "type": {
-      "token": "string",
-      "tokenId": 0
-    },
-    "value": 0
-  },
-  "take": {
-    "type": {
-      "token": "string",
-      "tokenId": 0
-    },
-    "value": 0
-  },
-  "fill": 0,
-  "stock": 0,
-  "canceled": true,
-  "salt": {},
-  "data": {
-    "token": "string",
-    "tokenId": 0
-  },
-  "signature": {},
-  "createdAt": "2021-03-17T15:06:01.283Z",
-  "lastUpdateAt": "2021-03-17T15:06:01.283Z",
-  "hash": {}
+    "orders": [
+        {
+            "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
+            "make": {
+                "assetType": {
+                    "assetClass": "ERC721",
+                    "contract": "0xcfa14f6dc737b8f9e0fc39f05bf3d903ac5d4575",
+                    "tokenId": "1"
+                },
+                "value": "1"
+            },
+            "take": {
+                "assetType": {
+                    "assetClass": "ETH"
+                },
+                "value": "1000000000000000000"
+            },
+            "type": "RARIBLE_V2",
+            "fill": "0",
+            "makeStock": "1",
+            "cancelled": false,
+            "salt": "0x00000000000000000000000000000000000000000000000000000000000002b3",
+            "data": {
+                "dataType": "RARIBLE_V2_DATA_V1",
+                "payouts": [],
+                "originFees": []
+            },
+            "signature": "0xf45a9adfb58fdd9da808b5f80302ebdb7d75f032d6aaee9700ee93f567fff3b148116a93ad2bd908a2d8e9576295650460a653d442f7c3472cb8f1275739075e1c",
+            "createdAt": "2021-05-25T01:33:43.358+00:00",
+            "lastUpdateAt": "2021-05-25T01:33:43.532+00:00",
+            "pending": [],
+            "hash": "0x0b3007a2a4cd8701f98b8fd02f2a9bc09320d11d5e4fa8134f884904d8bfdf3b",
+            "makeBalance": "1",
+            "takePriceUsd": 2735.136582605625300000000000000000
+        }
+    ],
+    "continuation": "1621906423532_0b3007a2a4cd8701f98b8fd02f2a9bc09320d11d5e4fa8134f884904d8bfdf3b"
 }
 ```
-{% endapi-method-response-example %}
-{% endapi-method-response %}
-{% endapi-method-spec %}
-{% endapi-method %}
 
-Below is an example call to getting the orders via hash
-
-```javascript
-var axios = require('axios');
-var data = '';
-
-var config = {
-  method: 'get',
-  url: 'https://api-staging.rarible.com/protocol/ethereum/order/indexer/v1/orders/0x438f5a4f9809285c722cfe5991f89b603d2d605a4e739831b81d0f622bdf1f37',
-  data: data
-};
-
-axios(config).then(function (response) {
-  console.log(JSON.stringify(response.data));
-}).catch(function (error) {
-  console.log(error);
-});
-```
-
+For more information on the order indexer and options for discoring orders, see the [API Reference](https://api-reference.rarible.com/#tag/order-controller)

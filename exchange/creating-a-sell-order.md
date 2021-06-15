@@ -12,169 +12,152 @@ The approval on the transfer proxy only needs to be called if a previous approva
 
 **Step 2. Creating signature**
 
-Before creating the actual order we have to create our signature that will be used for transaction processing
+#### Sell ERC721 for ETH
 
-The signature must follow EIP-712 that allows us to sign data structures instead of raw messages.
+**You can only fill an ETH order if your side of the order is providing the ETH**. Otherwise you would have to use WETH which has the transferFrom capability.
 
-{% hint style="info" %}
-Here's quick example and concept how it works. The full working example can be explored here: [https://github.com/evgenynacu/sign-typed-data](https://github.com/evgenynacu/sign-typed-data)
-{% endhint %}
+**First** Encode the order for signing
 
-```typescript
-export type OrderAssetType = {
-	assetClass: string
-	data: string
+POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/encoder/order`
+
+```
+{
+    "type": "RARIBLE_V2",
+    "maker": "0x744222844bFeCC77156297a6427B5876A6769e19",
+    "make": {
+        "assetType": {
+            "assetClass": "ERC721",
+            "contract": "0xcfa14f6DC737b8f9e0fC39f05Bf3d903aC5D4575",
+            "tokenId": 1
+        },
+        "value": "1"
+    },
+    "take": {
+        "assetType": {
+            "assetClass": "ETH"
+        },
+        "value": "1000000000000000000"
+    },
+    "data": {
+        "dataType": "RARIBLE_V2_DATA_V1",
+        "payouts": [],
+        "originFees": []
+    },
+    "salt": "3621"
 }
+```
 
-export type OrderAsset = {
-	assetType: OrderAssetType
-	value: string
+Response:
+```
+{
+    "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
+    "makeAsset": {
+        "assetType": {
+            "assetClass": "0x73ad2146",
+            "data": "0x000000000000000000000000cfa14f6dc737b8f9e0fc39f05bf3d903ac5d45750000000000000000000000000000000000000000000000000000000000000001"
+        },
+        "value": "1"
+    },
+    "taker": "0x0000000000000000000000000000000000000000",
+    "takeAsset": {
+        "assetType": {
+            "assetClass": "0xaaaebeba",
+            "data": "0x"
+        },
+        "value": "1000000000000000000"
+    },
+    "salt": "3621",
+    "start": "0",
+    "end": "0",
+    "dataType": "0x4c234266",
+    "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 }
+```
 
-export type Order = {
-	maker: string
-	makeAsset: OrderAsset
-	taker: string
-	takeAsset: OrderAsset
-	salt: string
-	start: string
-	end: string
-	data: string
-	dataType: string
+**Then** Sign the order
+
+```
+async function sign(provider, order, account, verifyingContract) {
+	const chainId = Number(provider._network.chainId);
+	const data = EIP712.createTypeData({
+		name: "Exchange",
+		version: "2",
+		chainId,
+		verifyingContract
+	}, 'Order', order, Types);
+  console.log({data})
+	return (await EIP712.signTypedData(provider, account, data)).sig;
 }
-
-// RINKEBY
-const signable = {
-	types: {
-		AssetType: [
-			{ name: 'assetClass', type: 'bytes4' },
-			{ name: 'data', type: 'bytes' },
-		],
-		Asset: [
-			{ name: 'assetType', type: 'AssetType' },
-			{ name: 'value', type: 'uint256' },
-		],
-		Order: [
-			{ name: 'maker', type: 'address' },
-			{ name: 'makeAsset', type: 'Asset' },
-			{ name: 'taker', type: 'address' },
-			{ name: 'takeAsset', type: 'Asset' },
-			{ name: 'salt', type: 'uint256' },
-			{ name: 'start', type: 'uint256' },
-			{ name: 'end', type: 'uint256' },
-			{ name: 'dataType', type: 'bytes4' },
-			{ name: 'data', type: 'bytes' },
-		],
-	},
-	domain: {
-     name: "Exchange",
-     version: "2",
-     chainId: 4,
-     verifyingContract: "0x43162023C187662684abAF0b211dCCB96fa4eD8a"
-  },
-	message: Order,
-	primaryType: "Order"
-}
-
-// use this function to sign structure from above
-function signTypedData(web3: any, from: string, data: any) {
-  const msgData = JSON.stringify(data);
-  return new Promise<any>((resolve, reject) => {
-    function cb(err: any, result: any) {
-      if (err) return reject(err);
-      if (result.error) return reject(result.error);
-      const sig = result.result;
-      const sig0 = sig.substring(2);
-      const r = "0x" + sig0.substring(0, 64);
-      const s = "0x" + sig0.substring(64, 128);
-      const v = parseInt(sig0.substring(128, 130), 16);
-      resolve({ data, sig, v, r, s });
-    }
-  
-  return web3.currentProvider.sendAsync({
-      method: "eth_signTypedData_v3",
-      params: [from, msgData],
-      from 
-    }, cb);
-  })
-}
-
 ```
 
 **Step 3. Send order with signature to our API**
 
-To Create an order we first need to build the order via a Put request to our [http://api-staging.rarible.com/protocol/ethereum/order/indexer/v1/orders](http://api-staging.rarible.com/protocol/ethereum/order/indexer/v1/orders) endpoint
+POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/orders`
 
-The order should be built as an Object like below
-
-```typescript
-export type AssetTypeForm = {
-  "assetClass": "ETH"
-} | {
-  "assetClass": "ERC721"
-  contract: string
-  tokenId: string
-} | {
-  "assetClass": "ERC20"
-	contract: string
-  tokenId: string
-} | {
-	"assetClass": "ERC1155"
-	contract: string
-	tokenId: string
-}
-
-export type AssetForm = {
-	assetType: AssetTypeForm
-	value: string
-}
-
-export type OrderDataV1Form = {
-	dataType: "RARIBLE_V2_DATA_V1",
-	payouts: Part[],
-	originFees: Part[]
-}
-export type OrderDataForm = OrderDataV1Form
-
-export type OrderForm = {
-	type: "RARIBLE_V1" | "RARIBLE_V2"
-	maker: string,
-	make: AssetForm,
-	taker?: string,
-	take: AssetForm,
-	salt: string,
-	start?: string,
-	end?: string,
-	data: OrderDataForm,
-	signature: string
-}
-
-// See Step 2. to create this signature
-const signature = "0xafbfc3bc623517d5a8876a082485f1a3051185a08880db575e1ab9446caff149722e83dc9c61d77f0a8cbb2d16f763d8f3a270ca02d2bc76750eb72c1d053fcd1b"
-const form: OrderForm = {
-  type: "RARIBLE_V2"
-  maker: "0xc66d094ed928f7840a6b0d373c1cd825c97e3c7c",
-  make: {
-    assetType: {
-      assetClass: "ERC721",
-      token: "0x25646b08d9796ceda5fb8ce0105a51820740c049",
-      tokenId: "0xc66d094ed928f7840a6b0d373c1cd825c97e3c7c00000000000000000000000a"
+Payload
+```
+{
+    "type": "RARIBLE_V2",
+    "maker": "0x744222844bFeCC77156297a6427B5876A6769e19",
+    "make": {
+        "assetType": {
+            "assetClass": "ERC721",
+            "contract": "0xcfa14f6DC737b8f9e0fC39f05Bf3d903aC5D4575",
+            "tokenId": 1
+        },
+        "value": "1"
     },
-    value: "1",
-  },
-  take: {
-    assetType: {
-      assetClass: "ETH"
+    "take": {
+        "assetType": {
+            "assetClass": "ETH"
+        },
+        "value": "1000000000000000000"
     },
-    value: "10000000000000000",
-  },
-  salt: "2",
-  data: {
-    dataType: "RARIBLE_V2_DATA_V1",
-    payouts: [],
-    originFees: []
-  },
-  signature: signature
+    "data": {
+        "dataType": "RARIBLE_V2_DATA_V1",
+        "payouts": [],
+        "originFees": []
+    },
+    "salt": "5422",
+    "signature": "0x45461654b86e856686e7a2e9a9213b29f8dc32a731046e0c2f1aa01e4eaa991e41ebc67535fac14c333ad5b0d0d821ef518edc9ed08ad7efc0af572620c045ce1c"
+}
+```
+
+Response
+```
+{
+    "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
+    "make": {
+        "assetType": {
+            "assetClass": "ERC721",
+            "contract": "0xcfa14f6dc737b8f9e0fc39f05bf3d903ac5d4575",
+            "tokenId": "1"
+        },
+        "value": "1"
+    },
+    "take": {
+        "assetType": {
+            "assetClass": "ETH"
+        },
+        "value": "1000000000000000000"
+    },
+    "type": "RARIBLE_V2",
+    "fill": "0",
+    "makeStock": "1",
+    "cancelled": false,
+    "salt": "0x000000000000000000000000000000000000000000000000000000000000152e",
+    "data": {
+        "dataType": "RARIBLE_V2_DATA_V1",
+        "payouts": [],
+        "originFees": []
+    },
+    "signature": "0x45461654b86e856686e7a2e9a9213b29f8dc32a731046e0c2f1aa01e4eaa991e41ebc67535fac14c333ad5b0d0d821ef518edc9ed08ad7efc0af572620c045ce1c",
+    "createdAt": "2021-05-25T02:04:28.836+00:00",
+    "lastUpdateAt": "2021-05-25T02:04:28.983+00:00",
+    "pending": [],
+    "hash": "0xc9cb92588fc1434a417f4cacb9e1267750e6f1cbe650988a6fdc1d0be8a310a9",
+    "makeBalance": "1",
+    "takePriceUsd": 2735.1365826056253000000000000000000
 }
 ```
 

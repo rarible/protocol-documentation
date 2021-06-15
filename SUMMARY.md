@@ -3,6 +3,7 @@
 * [Rarible Protocol Overview](README.md)
 * [Tutorials](tutorials.md)
 * [Contract Addresses](contract-addresses.md)
+* [Starter App](starter-app/README.md)
 
 ## Assets <a id="asset"></a>
 
@@ -17,9 +18,12 @@
 * [Order Discovery](exchange/order-discovery.md)
 * [Accepting a Buy Order](exchange/accepting-a-buy-order.md)
 * [Updating/Canceling an Order](exchange/updating-cancelling-an-order.md)
+* [Contract Wallets](exchange/contract-wallets.md)
 
 ## Smart-Contracts
 
 * [Architecture](smart-contracts/architecture.md)
 * [Matching Orders](smart-contracts/matching-orders.md)
 
+## Example-Projects
+* [Picnic](example-projects/picnic.md)
