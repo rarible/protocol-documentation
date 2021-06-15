@@ -1,13 +1,14 @@
 # Table of contents
 
 * [Rarible Protocol Overview](README.md)
+* [Rarible Hackathon Docs](rarible-hackathon-docs.md)
 * [Tutorials](tutorials.md)
 * [Contract Addresses](contract-addresses.md)
 
 ## Assets <a id="asset"></a>
 
-* [Asset Creation](asset/creating-an-asset/README.md)
-  * [Royalties Schema](asset/creating-an-asset/royalties-schema.md)
+* [Asset Creation](asset/creating-an-asset.md)
+* [Royalties Schema](asset/royalties-schema.md)
 * [Asset Discovery](asset/asset-discovery.md)
 
 ## Exchange
