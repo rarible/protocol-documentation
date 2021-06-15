@@ -1,6 +1,9 @@
 
 This starter app was built using [Austin Griffith's Scaffold-Eth](https://github.com/austintgriffith/scaffold-eth) framework. For more starter apps and inspiration check out the [BuidlGuidl](https://buidlguidl.com/)
 
+
+Video Tutorial: 
+
 [![tutorial](https://user-images.githubusercontent.com/4401444/121973242-d1703d80-cd4a-11eb-8a6a-96b103f25ef3.jpeg)](https://youtu.be/MBj3WIj5Wzc![thumbnail])
 
 # Quick Start
