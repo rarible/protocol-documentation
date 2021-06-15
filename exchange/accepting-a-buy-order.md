@@ -13,13 +13,13 @@ matchOrders function defined in [ExchangeV2Core](https://github.com/rariblecom/p
 more about order structure can be found [here](https://docs.rarible.com/exchange/exchangev2#order-structure)
 {% endhint %}
 
-#### Pay ETH for ERC721
+### Pay ETH for ERC721
 
 **You can only fill an ETH order if your side of the order is providing the ETH**. Otherwise you would have to use WETH which has the transferFrom capability.
 
 Encoded order
 
-```
+```text
 {
   "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
   "makeAsset": { "assetType": { "assetClass": "0xaaaebeba", "data": "0x" }, "value": "100000000000000000" },
@@ -37,12 +37,11 @@ Encoded order
   "dataType": "0x4c234266",
   "data": "0x0000000000000000000000000000000000000000000000000000000000000040000000000000000000000000000000000000000000000000000000000000006000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
 }
-
 ```
 
-Example transaction that has both a signed sell order and an unsigned buy order, submitted by the buyer.
-https://rinkeby.etherscan.io/tx/0x2d01b1869b556629acf7304b53d2f77fd927a2c3c9daea02aa093ba8ba41b4c6
+Example transaction that has both a signed sell order and an unsigned buy order, submitted by the buyer. [https://rinkeby.etherscan.io/tx/0x2d01b1869b556629acf7304b53d2f77fd927a2c3c9daea02aa093ba8ba41b4c6](https://rinkeby.etherscan.io/tx/0x2d01b1869b556629acf7304b53d2f77fd927a2c3c9daea02aa093ba8ba41b4c6)
 
-### Bid Orders
+## Bid Orders
 
 A bid is just an unmatched buy order. The bidder submits the order to the indexer, like shown in **Creating a sell order**. The seller accepts it by creating a matched order.
+

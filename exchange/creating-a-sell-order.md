@@ -12,7 +12,7 @@ The approval on the transfer proxy only needs to be called if a previous approva
 
 **Step 2. Creating signature**
 
-#### Sell ERC721 for ETH
+### Sell ERC721 for ETH
 
 **You can only fill an ETH order if your side of the order is providing the ETH**. Otherwise you would have to use WETH which has the transferFrom capability.
 
@@ -20,7 +20,7 @@ The approval on the transfer proxy only needs to be called if a previous approva
 
 POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/encoder/order`
 
-```
+```text
 {
     "type": "RARIBLE_V2",
     "maker": "0x744222844bFeCC77156297a6427B5876A6769e19",
@@ -48,7 +48,8 @@ POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/encoder/or
 ```
 
 Response:
-```
+
+```text
 {
     "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
     "makeAsset": {
@@ -76,17 +77,17 @@ Response:
 
 **Then** Sign the order
 
-```
+```text
 async function sign(provider, order, account, verifyingContract) {
-	const chainId = Number(provider._network.chainId);
-	const data = EIP712.createTypeData({
-		name: "Exchange",
-		version: "2",
-		chainId,
-		verifyingContract
-	}, 'Order', order, Types);
+    const chainId = Number(provider._network.chainId);
+    const data = EIP712.createTypeData({
+        name: "Exchange",
+        version: "2",
+        chainId,
+        verifyingContract
+    }, 'Order', order, Types);
   console.log({data})
-	return (await EIP712.signTypedData(provider, account, data)).sig;
+    return (await EIP712.signTypedData(provider, account, data)).sig;
 }
 ```
 
@@ -95,7 +96,8 @@ async function sign(provider, order, account, verifyingContract) {
 POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/orders`
 
 Payload
-```
+
+```text
 {
     "type": "RARIBLE_V2",
     "maker": "0x744222844bFeCC77156297a6427B5876A6769e19",
@@ -124,7 +126,8 @@ Payload
 ```
 
 Response
-```
+
+```text
 {
     "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
     "make": {

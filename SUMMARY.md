@@ -2,7 +2,8 @@
 
 * [Rarible Protocol Overview](README.md)
 * [Contract Addresses](contract-addresses.md)
-* [Starter App](starter-app/README.md)
+* [Tutorials](tutorials.md)
+* [Starter App](starter-app.md)
 
 ## Assets <a id="asset"></a>
 
@@ -25,4 +26,6 @@
 * [Matching Orders](smart-contracts/matching-orders.md)
 
 ## Example-Projects
+
 * [Picnic](example-projects/picnic.md)
+

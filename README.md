@@ -15,49 +15,46 @@ Rarible is designed as the NFT protocol for all, owned and governed by the commu
 Rarible's protocol includes contracts, standards, and APIs for:
 
 **Minting**
-* Minting (Both ERC721 & ERC1155)
+
+* Minting \(Both ERC721 & ERC1155\)
 * Lazy Minting - Token metadata & minting signatures are stored on Rarible back-end until a buyer fills the order. Then a `mintAndTransfer` call is made on chain when the order is filled
 
+**Exchange** \(Buy, Sell, Bid\)
 
-**Exchange** (Buy, Sell, Bid)
 * Signature based order matching using an off chain order book
 * Asset discovery is off chain, then buyers or sellers can submit both sides of an order, including relevant signatures to execute a transfer.
 * Asset owners must `approve` the Rarible exchange to transfer on their behalf
-* Multiple asset types are supported to fill orders (ERC721, ERC1155, ERC20)
+* Multiple asset types are supported to fill orders \(ERC721, ERC1155, ERC20\)
 * Bidding is supported
 
 **Indexer**
+
 * Rarible API exposes ways to query NFTs indexed on Ethereum
 * Rarible API exposes ways to create orders
 
-
 ### API Reference
 
-https://api-reference.rarible.com/
+[https://api-reference.rarible.com/](https://api-reference.rarible.com/)
 
-
-
-| Base URL  | Network | Chain ID |
-| -------- | -------- | -------- |
-| https://api.rarible.com/protocol/v0.1/     | Mainnet     | 1     |
-| https://api-staging.rarible.com/protocol/v0.1/     | Rinkeby     | 4     |
-| https://api-dev.rarible.com/protocol/v0.1/     | Ropsten     | 3     |
-
-
+| Base URL | Network | Chain ID |
+| :--- | :--- | :--- |
+| [https://api.rarible.com/protocol/v0.1/](https://api.rarible.com/protocol/v0.1/) | Mainnet | 1 |
+| [https://api-staging.rarible.com/protocol/v0.1/](https://api-staging.rarible.com/protocol/v0.1/) | Rinkeby | 4 |
+| [https://api-dev.rarible.com/protocol/v0.1/](https://api-dev.rarible.com/protocol/v0.1/) | Ropsten | 3 |
 
 {% hint style="info" %}
 Source code for the ERC721, ERC1155, Rarible Exchange are available on github:  
 [https://github.com/rariblecom/protocol-contracts](https://github.com/rariblecom/protocol-contracts)
 {% endhint %}
 
-## Why build on Rarible protocol? 
+## Why build on Rarible protocol?
 
 1. **Supply and demand of the whole Rarible ecosystem** Rarible is one of the biggest NFT marketplaces out there with over $64 million in total lifetime volume and 57k monthly protocol users, slick UX, and a variety of use cases across industries. You can utilize the shared order book with Rarible.
 2. **Advanced & robust tech done for you** Creating the tech from scratch is hard and time-consuming. Rarible provides access to the tools that the team has been developing for the past 1,5 years with wide functionality and data on all the NFTs created.
 3. **Monetization**  Rarible protocol enables arbitrary front-end fees: you can additionally monetize your creations.
 4. **DAO**  Rarible is steadily moving towards becoming a fully decentralized autonomous organization. The DAO will offer multiple opportunities for creators to get funding and exposure. It will incentivize people to build on top of the protocol, and we expect the DAO to reward the early builders.
 
-## Protocol Flow 
+## Protocol Flow
 
 1. [Creating ERC721/1155 Asset Metadata and Calling the Mint function](asset/creating-an-asset.md) In this step, we build asset metadata, upload this metadata to IPFS and finally create our NFT on-chain. It is also very important to read up about our [Royalties Schema](asset/royalties-schema.md).
 2. [Asset Discovery](asset/asset-discovery.md) In our Asset Discovery section, you will learn how to query items and their metadata, using filters and paging, this includes items created outside of Rarible.

@@ -4,12 +4,13 @@
 
 Example of how to query orders for all NFTs in a collection
 
-```
+```text
 curl --location --request GET 'https://api-staging.rarible.com/protocol/v0.1/ethereum/order/orders/sell/byCollection?collection=0xcfa14f6DC737b8f9e0fC39f05Bf3d903aC5D4575&sort=LAST_UPDATE'
 ```
 
 Response
-```
+
+```text
 {
     "orders": [
         {
@@ -52,3 +53,4 @@ Response
 ```
 
 For more information on the order indexer and options for discoring orders, see the [API Reference](https://api-reference.rarible.com/#tag/order-controller)
+

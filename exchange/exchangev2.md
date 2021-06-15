@@ -15,17 +15,17 @@ The general process for completing an order with the Rarible Exchange is as foll
 2. Seller creates and signs an order. They specify the types and amounts of assets they would like in return.
 3. Seller submits the order to the indexer
 4. Potential buyers query the indexer to get sell orders for a specific item or collection
-5. Buyers can create a matching buy order for a sell order from the indexer. The buyer can then submit a matching buy order to the smart contract and execute the transfer (no sig required).
-6. Or the buyer can create a new bid and submit it to the indexer (requires signature)
+5. Buyers can create a matching buy order for a sell order from the indexer. The buyer can then submit a matching buy order to the smart contract and execute the transfer \(no sig required\).
+6. Or the buyer can create a new bid and submit it to the indexer \(requires signature\)
 7. If the buyer submits a bid, the seller can choose to accept it by creating the matching sell order and submitting it to the contract, or they can send a signed order back to the buyer which the buyer would submit to the contract.
 
 ## Order Structure
 
-Each order (both buy & sell) consist of a `makeAsset` and a `takeAsset`
+Each order \(both buy & sell\) consist of a `makeAsset` and a `takeAsset`
 
-**Make Asset** is what you are sending. 
+**Make Asset** is what you are sending.
 
-* In a buy order this is what you are *paying* for the seller's NFT. This can be ETH, ERC20, ERC721, ERC1155, or any custom asset using their Asset Matcher interface
+* In a buy order this is what you are _paying_ for the seller's NFT. This can be ETH, ERC20, ERC721, ERC1155, or any custom asset using their Asset Matcher interface
 * In a sell order this is the NFT you are selling
 
 **Take Asset** is what you are accepting in return
@@ -36,56 +36,51 @@ Each order (both buy & sell) consist of a `makeAsset` and a `takeAsset`
 ### Order
 
 | Field | Description | Required |
-| -------- | -------- | -------- |
-| **Maker**     | Address of entity giving up `makeAsset`     | Yes     |
-| **makeAsset**     | Asset the entity is giving up     | Yes     |
-| **taker**     | Address of counterparty     | no, if 0 then anyone can fill the order     |
-| **takeAsset**     | Asset the entity is receving     | Yes     |
-| **salt**     | nonce for signatures submitted with the order     | Generally signatures are only needed if msg.sender != maker     |
-| **start**     | uint - order can't be filled before this time   | no     |
-| **end**     | uint - order can't be filled after this time     | no     |
-| **dataType**     | bytes4, usually hash of a string like v1 or v2     | Yes     |
-| **data**     | generic `bytes`. Can be used for protocol extensions     | no     |
+| :--- | :--- | :--- |
+| **Maker** | Address of entity giving up `makeAsset` | Yes |
+| **makeAsset** | Asset the entity is giving up | Yes |
+| **taker** | Address of counterparty | no, if 0 then anyone can fill the order |
+| **takeAsset** | Asset the entity is receving | Yes |
+| **salt** | nonce for signatures submitted with the order | Generally signatures are only needed if msg.sender != maker |
+| **start** | uint - order can't be filled before this time | no |
+| **end** | uint - order can't be filled after this time | no |
+| **dataType** | bytes4, usually hash of a string like v1 or v2 | Yes |
+| **data** | generic `bytes`. Can be used for protocol extensions | no |
 
 ### Asset
 
-
 | Field | Description | Required |
-| -------- | -------- | -------- |
-| assetType     | Specifies ETH, specific ERC20, ERC721, ERC1155     | Yes     |
-| value  | uint | Yes |
+| :--- | :--- | :--- |
+| assetType | Specifies ETH, specific ERC20, ERC721, ERC1155 | Yes |
+| value | uint | Yes |
 
 ### AssetType
 
 | Field | Description | Required |
-| -------- | -------- | -------- |
-| assetClass     | bytes4 specifies ETH, ERC20, ERC721    | Yes     |
-| data    | bytes - generic data depending on tp. Ex. address for ERC20, token + tokenID for ERC721 | yes |
-
+| :--- | :--- | :--- |
+| assetClass | bytes4 specifies ETH, ERC20, ERC721 | Yes |
+| data | bytes - generic data depending on tp. Ex. address for ERC20, token + tokenID for ERC721 | yes |
 
 ### Asset Types
 
 Asset Class data field is calculated as follows
 
-```
+```text
     bytes4 constant public ETH_ASSET_CLASS = bytes4(keccak256("ETH"));
     bytes4 constant public ERC20_ASSET_CLASS = bytes4(keccak256("ERC20"));
     bytes4 constant public ERC721_ASSET_CLASS = bytes4(keccak256("ERC721"));
     bytes4 constant public ERC1155_ASSET_CLASS = bytes4(keccak256("ERC1155"));
 ```
 
-All asset types get encoded using these helper functions
-https://github.com/rariblecom/protocol-contracts/blob/master/exchange-v2/test/assets.js
+All asset types get encoded using these helper functions [https://github.com/rariblecom/protocol-contracts/blob/master/exchange-v2/test/assets.js](https://github.com/rariblecom/protocol-contracts/blob/master/exchange-v2/test/assets.js)
 
 #### ERC721
 
-`assetClass`: Truncated hash of string "ERC721"
-`data`: ABI encoded parameters of `address` and `tokenId`
-`value`: 1
+`assetClass`: Truncated hash of string "ERC721" `data`: ABI encoded parameters of `address` and `tokenId` `value`: 1
 
-ERC721 Input (Pre encoding)
+ERC721 Input \(Pre encoding\)
 
-```
+```text
   {
     assetType: {
       assetClass: "ERC721",
@@ -97,12 +92,12 @@ ERC721 Input (Pre encoding)
 ```
 
 #### ERC1155
-`assetClass`: Truncated hash of string "ERC1155"
-`data`: ABI encoded parameters of `address` and `tokenId`
-`value`: 1->totalSupply
 
-ERC1155 Input (Pre encoding)
-```
+`assetClass`: Truncated hash of string "ERC1155" `data`: ABI encoded parameters of `address` and `tokenId` `value`: 1-&gt;totalSupply
+
+ERC1155 Input \(Pre encoding\)
+
+```text
   {
     assetType: {
       assetClass: "ERC1155",
@@ -114,13 +109,12 @@ ERC1155 Input (Pre encoding)
 ```
 
 #### ERC20
-`assetClass`: Truncated hash of string "ERC20"
-`data`: ABI encoded parameters of `address`
-`value`: 1->totalSupply
 
-ERC20 Input (Pre encoding)
+`assetClass`: Truncated hash of string "ERC20" `data`: ABI encoded parameters of `address` `value`: 1-&gt;totalSupply
 
-```
+ERC20 Input \(Pre encoding\)
+
+```text
   {
     assetType: {
       assetClass: "ERC20",
@@ -131,13 +125,12 @@ ERC20 Input (Pre encoding)
 ```
 
 #### ETH
-`assetClass`: Truncated hash of string "ETH"
-`data`: 0x
-`value`: 1->1e18
 
-Input (pre encoding)
+`assetClass`: Truncated hash of string "ETH" `data`: 0x `value`: 1-&gt;1e18
 
-```
+Input \(pre encoding\)
+
+```text
   {
     assetType: {
       assetClass: "ETH"
@@ -150,9 +143,7 @@ Input (pre encoding)
 
 Any asset can be added
 
-`assetClass`: Truncated hash of any string
-`data`: Whatever is relevant
-`value`: some uint
+`assetClass`: Truncated hash of any string `data`: Whatever is relevant `value`: some uint
 
 ## **Order validation**
 

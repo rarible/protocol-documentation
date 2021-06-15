@@ -1,18 +1,18 @@
-## How Picnic uses the Rarible API
+# Picnic
 
 We use Rarible to help us identify NFTs from creators and collectors in the [Picnic](https://picnic.show) showcase. The [Rarible API](https://api-reference.rarible.com) provides a few great endpoints for fetching the necessary data.
 
-
-### API Calls
+## API Calls
 
 The following endpoints can be used:
-* **Production:** https://api.rarible.com/
-* **Staging (Rinkeby/Ropsten):** https://api-staging.rarible.com/
 
+* **Production:** [https://api.rarible.com/](https://api.rarible.com/)
+* **Staging \(Rinkeby/Ropsten\):** [https://api-staging.rarible.com/](https://api-staging.rarible.com/)
 
-#### Getting Tokens by Owner
+### Getting Tokens by Owner
 
 Paginate through owned tokens
+
 ```javascript
 import axios from 'axios';
 
@@ -51,6 +51,7 @@ const fetchOwnedTokens = async (owner, opts = {}) => {
 The `byOwner` endpoint does not return token metadata. You can attempt to query this information from the blockchain directly or use another API to collect token metadata information.
 
 You can use the `getItemMetaById` Rarible API endpoint to get token metadata. Be mindful that you’ll have to make one request per token.
+
 ```javascript
 import axios from 'axios';
 
@@ -68,6 +69,5 @@ const fetchTokenMetadata = async id => {
 };
 ```
 
----
-
 If you have question, please reach out. greg@picnic.show / [@gleuch](https://twitter.com/gleuch)
+
