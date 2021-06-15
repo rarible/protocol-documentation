@@ -1,8 +1,6 @@
 # Table of contents
 
 * [Rarible Protocol Overview](README.md)
-* [Tutorials](tutorials/README.md)
-  * [Rarible Hackathon Docs](tutorials/rarible-hackathon-docs.md)
 * [Contract Addresses](contract-addresses.md)
 
 ## Assets <a id="asset"></a>
