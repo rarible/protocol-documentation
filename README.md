@@ -12,18 +12,38 @@ Rarible is designed as the NFT protocol for all, owned and governed by the commu
 
 ## Protocol Features
 
-* **Minting**
-  * Custom royalties - set of address: value royalties receivers
-  * "lazy" minting that allows you to store an item on your back end and mint upon the actual sale
-  * Upgradable assets contracts
-* **Exchange**
-  * Any combination of ERC-721, ERC-1155, ERC-20 swaps
-  * Bidding
-  * Front-end fees
-* **Indexer**
-  * Index of all the ERC721 and ERC1155 assets ever created on the Ethereum chain
-  * NFT Provenance: transfers, sales
-  * NFT Metadata storage
+Rarible's protocol includes contracts, standards, and APIs for:
+
+**Minting**
+* Minting (Both ERC721 & ERC1155)
+* Lazy Minting - Token metadata & minting signatures are stored on Rarible back-end until a buyer fills the order. Then a `mintAndTransfer` call is made on chain when the order is filled
+
+
+**Exchange** (Buy, Sell, Bid)
+* Signature based order matching using an off chain order book
+* Asset discovery is off chain, then buyers or sellers can submit both sides of an order, including relevant signatures to execute a transfer.
+* Asset owners must `approve` the Rarible exchange to transfer on their behalf
+* Multiple asset types are supported to fill orders (ERC721, ERC1155, ERC20)
+* Bidding is supported
+
+**Indexer**
+* Rarible API exposes ways to query NFTs indexed on Ethereum
+* Rarible API exposes ways to create orders
+
+
+### API Reference
+
+https://api-reference.rarible.com/
+
+
+
+| Base URL  | Network | Chain ID |
+| -------- | -------- | -------- |
+| https://api.rarible.com/protocol/v0.1/     | Mainnet     | 1     |
+| https://api-staging.rarible.com/protocol/v0.1/     | Rinkeby     | 4     |
+| https://api-dev.rarible.com/protocol/v0.1/     | Ropsten     | 3     |
+
+
 
 {% hint style="info" %}
 Source code for the ERC721, ERC1155, Rarible Exchange are available on github:  
