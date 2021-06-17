@@ -19,7 +19,7 @@ These controllers have common parameters:
 * continuation - send this parameter to fetch next portion of data \(you can find continuation value in the server response\)
 * also they have different query parameters for each. Please, see [api-reference](https://api-reference.rarible.com/)
 
-{% api-method method="get" host="http://api.rarible.com/protocol/ethereum/nft/indexer/v1/items/" path=":itemId/meta" %}
+{% api-method method="get" host="http://api.rarible.com/protocol/v0.1/ethereum/nft/items/" path=":itemId/meta" %}
 {% api-method-summary %}
 Item Metadata
 {% endapi-method-summary %}
@@ -58,7 +58,7 @@ The itemId is built by using collectionAddress:tokenId - An example is 0x60f8012
 {% endapi-method-spec %}
 {% endapi-method %}
 
-{% api-method method="get" host="http://api.rarible.com/protocol/ethereum/nft/indexer/v1/items/" path=":itemId" %}
+{% api-method method="get" host="http://api.rarible.com/protocol/v0.1/ethereum/nft/items/" path=":itemId" %}
 {% api-method-summary %}
 Item Data
 {% endapi-method-summary %}
