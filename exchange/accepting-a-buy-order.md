@@ -2,6 +2,10 @@
 
 To buy an item or accept a bid user should send transaction to [Exchange](https://rinkeby.etherscan.io/address/0x43162023c187662684abaf0b211dccb96fa4ed8a) contract's matchOrders function.
 
+{% hint style="info" %}
+Example for sending matchOrders is here: [https://github.com/evgenynacu/sign-typed-data/blob/ropsten/src/order/script.ts\#L82](https://github.com/evgenynacu/sign-typed-data/blob/ropsten/src/order/script.ts#L82)
+{% endhint %}
+
 matchOrders function defined in [ExchangeV2Core](https://github.com/rariblecom/protocol-contracts/blob/master/exchange-v2/contracts/exchange/v2/ExchangeV2Core.sol) has 4 parameters:
 
 1. left order.

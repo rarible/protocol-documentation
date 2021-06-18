@@ -43,7 +43,7 @@ The itemId is built by using collectionAddress:tokenId - An example is 0x60f8012
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
   "name": "string",
   "description": "string",
@@ -82,7 +82,7 @@ The itemId is built by using collectionAddress:tokenId - An example is 0x60f8012
 
 {% endapi-method-response-example-description %}
 
-```
+```text
 {
   "id": "string",
   "token": "string",
