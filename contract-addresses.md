@@ -22,7 +22,7 @@ description: >-
 
 ### Asset Contract ERC1155    0x1AF7A7555263F275433c6Bb0b8FdCD231F89B1D7 [↗](https://rinkeby.etherscan.io/address/0x1AF7A7555263F275433c6Bb0b8FdCD231F89B1D7)
 
-### Exchange Contract    0x1e1B6E13F0eB4C570628589e3c088BC92aD4dB45 [↗](https://rinkeby.etherscan.io/address/0x1e1B6E13F0eB4C570628589e3c088BC92aD4dB45)
+### Exchange Contract    0xd4a57a3bD3657D0d46B4C5bAC12b3F156B9B886b [↗](https://rinkeby.etherscan.io/address/0xd4a57a3bD3657D0d46B4C5bAC12b3F156B9B886b)
 
 ### NFT Transfer Proxy \(for Approvals\) 0x7d47126a2600E22eab9eD6CF0e515678727779A6 [↗](https://rinkeby.etherscan.io/address/0x7d47126a2600E22eab9eD6CF0e515678727779A6)
 
