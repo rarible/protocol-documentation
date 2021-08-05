@@ -34,3 +34,5 @@ description: >-
 
 ### Exchange Contract    0x9757F2d2b135150BBeb65308D4a91804107cd8D6 [↗](https://etherscan.io/address/0x9757F2d2b135150BBeb65308D4a91804107cd8D6)
 
+### External Royalties    0xEa90CFad1b8e030B8Fd3E63D22074E0AEb8E0DCD [↗](https://etherscan.io/address/0xEa90CFad1b8e030B8Fd3E63D22074E0AEb8E0DCD#code)
+
