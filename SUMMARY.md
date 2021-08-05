@@ -8,6 +8,7 @@
 ## Assets <a id="asset"></a>
 
 * [Asset Creation](asset/creating-an-asset.md)
+* [Token Factories](asset/token-factories.md)
 * [Royalties Schema](asset/royalties-schema.md)
 * [Asset Discovery](asset/asset-discovery.md)
 
