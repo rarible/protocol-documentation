@@ -1,6 +1,6 @@
 ---
 description: >-
-  Rarible protocol is a combination of smart-contracts for minting, exchanging
+  Rarible Protocol is a combination of smart-contracts for minting, exchanging
   tokens, APIs for order creation, discovery, standards used in smart contracts.
 ---
 

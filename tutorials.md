@@ -4,7 +4,7 @@ description: Here you can find some community created tutorials for using Raribl
 
 # Tutorials
 
-## Protocol example app (using SDK)
+## Protocol example app \(using SDK\)
 
 Examine the repo below to check on the code to Mint a Lazy Item and Sell Order for it
 
