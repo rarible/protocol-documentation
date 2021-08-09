@@ -50,7 +50,7 @@ Direct calls to `mint()` should be avoided and replaced with `mintAndTransfer()`
 
 _**Parameters**_
 
- tokenId
+tokenId
 
 The `tokenId` must be supplied as a uint256, which is a unique identifying number for the token.
 
@@ -58,7 +58,7 @@ The `tokenId` is made up of two sections, the first 20 bytes is the user's addre
 
 &lt;/p&gt; &lt;/details&gt;
 
- uri
+uri
 
 This is the suffix for the tokenURI. The prefix for Rarible protocol contracts is `ipfs://`
 
@@ -72,7 +72,7 @@ This is the suffix for the tokenURI. The prefix for Rarible protocol contracts i
 
 **Note:** If you are not storing your metadata on IPFS, you will need to create your own custom collection contract instead of using the protocol's asset contracts. See **Implementation** for details. &lt;/p&gt; &lt;/details&gt;
 
- creators
+creators
 
 `creators` is an array of addresses and values. The `LibPart.Part` struct it derives from is provided below.
 
@@ -91,7 +91,7 @@ I.e. The following array, `[[0x12345..., 5000], [0x6789..., 5000]]`, associates 
 
 &lt;/p&gt; &lt;/details&gt;
 
- royalties
+royalties
 
 `royalties` is an array of addresses and values. Like `creators`, it's also derived from the `LibPart.Part` struct provided below.
 
@@ -108,14 +108,13 @@ I.e. One address recieves 20% royalties with the following array, `[[0x12345...,
 
 &lt;/p&gt; &lt;/details&gt;
 
- signatures
+signatures
 
 `signatures` is an array of wallet signatures for this transaction from every creator.
 
 However, an empty signature, `[[0x]]`, can be passed if the creator is minting immediately instead of creating a Lazy Mint. The steps for standard minting are provided in **ERC721 Standard Minting**.
 
-&lt;/p&gt; &lt;/details&gt;   
-
+&lt;/p&gt; &lt;/details&gt;
 
 **ERC721 mintAndTransfer ABI**
 
@@ -429,8 +428,7 @@ Response
 }
 ```
 
-You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉   
-
+You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉
 
 ### ERC721 Standard Minting
 
@@ -502,7 +500,7 @@ struct Mint1155Data {
 
 _**Parameters**_
 
- tokenId
+tokenId
 
 The `tokenId` must be supplied as a uint256, which is a unique identifying number for the token.
 
@@ -510,7 +508,7 @@ The `tokenId` is made up of two sections, the first 20 bytes is the user's addre
 
 &lt;/p&gt; &lt;/details&gt;
 
- uri
+uri
 
 This is the suffix for the tokenURI. The prefix for Rarible protocol contracts is `ipfs://`
 
@@ -524,13 +522,13 @@ This is the suffix for the tokenURI. The prefix for Rarible protocol contracts i
 
 **Note:** If you are not storing your metadata on IPFS, you will need to create your own custom collection contract instead of using the protocol's asset contracts. See **Implementation** for details. &lt;/p&gt; &lt;/details&gt;
 
- supply
+supply
 
 `supply` should be a uint256, this is the number of copies \(or Editions\) of this token that will ever exist. \(Maximum value is 2\*\*256 - 1\).
 
 &lt;/p&gt; &lt;/details&gt;
 
- creators
+creators
 
 `creators` is an array of addresses and values. The `LibPart.Part` struct it derives from is provided below.
 
@@ -549,7 +547,7 @@ I.e. The following array, `[[0x12345..., 5000], [0x6789..., 5000]]`, associates 
 
 &lt;/p&gt; &lt;/details&gt;
 
- royalties
+royalties
 
 `royalties` is an array of addresses and values. Like `creators`, it's also derived from the `LibPart.Part` struct provided below.
 
@@ -566,14 +564,13 @@ I.e. One address recieves 20% royalties with the following array, `[[0x12345...,
 
 &lt;/p&gt; &lt;/details&gt;
 
- signatures
+signatures
 
 `signatures` is an array of wallet signatures for this transaction from every creator.
 
 However, an empty signature, `[[0x]]`, can be passed if the creator is minting immediately instead of creating a Lazy Mint. The steps for standard minting are provided in **ERC1155 Standard Minting**.
 
-&lt;/p&gt; &lt;/details&gt;   
-
+&lt;/p&gt; &lt;/details&gt;
 
 **ERC1155 mintAndTransfer ABI**
 
@@ -902,8 +899,7 @@ Response
 }
 ```
 
-You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉   
-
+You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉
 
 ### ERC1155 Standard Minting
 

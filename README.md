@@ -4,7 +4,7 @@ description: >-
   tokens, APIs for order creation, discovery, standards used in smart contracts.
 ---
 
-# Rarible Protocol Overview
+# Rarible Protocol Documentation
 
 Rarible pursues the goal of creating a highly liquid environment for all NFTs out there: a robust on-chain protocol designed for NFTs to exist in a connected space. As a separate initiative with a dedicated team, it will enable direct interactions with the protocol from multiple front ends like storefronts or wallets, offering additional distribution channels and enhancing liquidity. It will also fuel the discovery of new NFT trading mechanics.
 

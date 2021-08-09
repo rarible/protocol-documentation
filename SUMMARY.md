@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Rarible Protocol Overview](README.md)
+* [Rarible Protocol Documentation](README.md)
 * [Contract Addresses](contract-addresses.md)
 * [Tutorials](tutorials.md)
 * [Starter App](starter-app.md)

@@ -36,9 +36,7 @@ This is where we determine which assets need to be transferred from each party. 
 * **To** - Address the Sell Order is sending assets from.
 * **Type** - Type can be one of several items like "protocol" \| "fee" \| "royalty" \| "maker" \| "taker" - can be expanded. This will be done in bytes32.
 
-#### Translations & Event Emits
+### Translations & Event Emits
 
 The transfer events are emitted through the proxy register, this makes it so custom transfers are possible.
-
-
 

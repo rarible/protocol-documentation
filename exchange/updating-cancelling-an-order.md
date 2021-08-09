@@ -23,5 +23,3 @@ function cancel(LibOrder.Order memory order) public {
 }
 ```
 
-
-
