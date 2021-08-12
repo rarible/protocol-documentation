@@ -31,6 +31,7 @@ Rarible's protocol includes contracts, standards, and APIs for:
 
 * Rarible API exposes ways to query NFTs indexed on Ethereum
 * Rarible API exposes ways to create orders
+* Source code of the indexer is available at [https://github.com/rarible/ethereum-indexer](https://github.com/rarible/ethereum-indexer)
 
 ### API Reference
 
