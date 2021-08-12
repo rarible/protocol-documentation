@@ -34,17 +34,17 @@ Rarible's protocol includes contracts, standards, and APIs for:
 
 ### API Reference
 
-[https://api-reference.rarible.com/](https://api-reference.rarible.com/)
+[https://ethereum-api.rarible.org/v0.1/doc](https://ethereum-api.rarible.org/v0.1/doc)
 
 | Base URL | Network | Chain ID |
 | :--- | :--- | :--- |
-| [https://api.rarible.com/protocol/v0.1/](https://api.rarible.com/protocol/v0.1/) | Mainnet | 1 |
-| [https://api-staging.rarible.com/protocol/v0.1/](https://api-staging.rarible.com/protocol/v0.1/) | Rinkeby | 4 |
-| [https://api-dev.rarible.com/protocol/v0.1/](https://api-dev.rarible.com/protocol/v0.1/) | Ropsten | 3 |
+| [https://ethereum-api.rarible.org/](https://ethereum-api.rarible.org/) | Mainnet | 1 |
+| [https://ethereum-api-staging.rarible.org/](https://ethereum-api-staging.rarible.org/) | Rinkeby | 4 |
+| [https://ethereum-api-dev.rarible.org/](https://ethereum-api-dev.rarible.org/) | Ropsten | 3 |
 
 {% hint style="info" %}
 Source code for the ERC721, ERC1155, Rarible Exchange are available on github:  
-[https://github.com/rariblecom/protocol-contracts](https://github.com/rariblecom/protocol-contracts)
+[https://github.com/rarible/protocol-contracts](https://github.com/rarible/protocol-contracts)
 {% endhint %}
 
 ## Why build on Rarible protocol?
