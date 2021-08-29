@@ -30,3 +30,7 @@
 
 * [Picnic](example-projects/picnic.md)
 
+## Resources
+
+* [Edit these docs](https://github.com/rarible/protocol-documentation)
+
