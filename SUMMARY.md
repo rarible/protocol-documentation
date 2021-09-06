@@ -9,6 +9,7 @@
 
 * [Asset Creation](asset/creating-an-asset.md)
 * [Token Factories](asset/token-factories.md)
+* [Royalties on a External Collection](asset/royalties-on-a-external-collection.md)
 * [Royalties Schema](asset/royalties-schema.md)
 * [Asset Discovery](asset/asset-discovery.md)
 
