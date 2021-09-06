@@ -34,7 +34,7 @@ Now we can go ahead and click on write which will bring up your connected wallet
 
 ![](../.gitbook/assets/image%20%284%29.png)
 
-Now that Royalties have been set up royalties will be paid out on every sale in that collection!  
+Now that Royalties have been set up, royalties will be paid out on every sale in that collection!  
   
 Below is an example of a purchase transaction with annotations on what each fee is for:
 
