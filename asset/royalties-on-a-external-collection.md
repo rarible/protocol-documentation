@@ -1,4 +1,4 @@
-# Royalties on a External Collection
+# Setting Up Royalties on a External Collection
 
 #### Step 1:
 
