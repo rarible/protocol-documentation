@@ -1,4 +1,4 @@
-# Setting Up Royalties on a External Collection
+# Setting Up Royalties on an External Collection
 
 #### Step 1:
 
@@ -6,7 +6,7 @@ Open the royalties contract in a new tab: [**https://etherscan.io/address/0xEa90
 
 #### Step 2:
 
-Make sure Write as Proxy is selected then click connect Web3.
+Make sure you select **Write as Proxy** is selected then click **Connect to Web3**.
 
 ![](../.gitbook/assets/image%20%281%29.png)
 
