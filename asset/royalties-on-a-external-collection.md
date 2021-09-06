@@ -40,5 +40,5 @@ Below is an example of a purchase transaction with annotations on what each fee 
 
 ![](../.gitbook/assets/image%20%286%29.png)
 
-You now have royalties across Rarible Protocol Platforms, Congradulations!
+You now have royalties across Rarible Protocol Platforms, Congratulations!
 
