@@ -14,6 +14,8 @@ description: >-
 
 ### Exchange Contract    0x33Aef288C093Bf7b36fBe15c3190e616a993b0AD [↗](https://ropsten.etherscan.io/address/0x33Aef288C093Bf7b36fBe15c3190e616a993b0AD)
 
+### External Royalties    0x1747757768Ff4AA61390B1ed3AA019141605717B [↗](https://ropsten.etherscan.io/address/0x1747757768Ff4AA61390B1ed3AA019141605717B#code)
+
 ### NFT Transfer Proxy \(for Approvals\) 0xf8e4ecac18b65fd04569ff1f0d561f74effaa206 [↗](https://ropsten.etherscan.io/address/0xf8e4ecac18b65fd04569ff1f0d561f74effaa206)
 
 ### ERC721 Token Factory [↗](https://ropsten.etherscan.io/address/0xcFDCE8eAC6FEe69137924204CbB6334281b84e7D)
@@ -27,6 +29,8 @@ description: >-
 ### Asset Contract ERC1155    0x1AF7A7555263F275433c6Bb0b8FdCD231F89B1D7 [↗](https://rinkeby.etherscan.io/address/0x1AF7A7555263F275433c6Bb0b8FdCD231F89B1D7)
 
 ### Exchange Contract    0xd4a57a3bD3657D0d46B4C5bAC12b3F156B9B886b [↗](https://rinkeby.etherscan.io/address/0xd4a57a3bD3657D0d46B4C5bAC12b3F156B9B886b)
+
+### External Royalties    0xdA8e7D4cF7BA4D5912a68c1e40d3D89828fA6EE8 [↗](https://rinkeby.etherscan.io/address/0xdA8e7D4cF7BA4D5912a68c1e40d3D89828fA6EE8#code)
 
 ### NFT Transfer Proxy \(for Approvals\) 0x7d47126a2600E22eab9eD6CF0e515678727779A6 [↗](https://rinkeby.etherscan.io/address/0x7d47126a2600E22eab9eD6CF0e515678727779A6)
 
