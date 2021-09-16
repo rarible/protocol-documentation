@@ -4,6 +4,7 @@
 * [Contract Addresses](contract-addresses.md)
 * [Tutorials](tutorials.md)
 * [Starter App](starter-app.md)
+* [Ethereum SDK](SDK.md)
 
 ## Assets <a id="asset"></a>
 
