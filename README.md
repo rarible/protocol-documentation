@@ -48,6 +48,23 @@ Source code for the ERC721, ERC1155, Rarible Exchange are available on github:
 [https://github.com/rarible/protocol-contracts](https://github.com/rarible/protocol-contracts)
 {% endhint %}
 
+### Rarible Protocol Ethereum SDK
+
+✨ Rarible The Rarible Protocol Ethereum SDK ✨ enables applications to easily interact with Rarible protocol.
+
+👷 With the Rarible Protocol Ethereum SDK, you can:
+
+
+- Create sell orders 💰
+- Create/accept bid for auctions
+- Buy tokens for regular sell orders
+- Create Lazy Mint NFT ERC721 and ERC1155 tokens
+- Make regular mint
+- Transfer tokens
+- Burn tokens
+
+Check it out [here](SDK.md).
+
 ## Why build on Rarible protocol?
 
 1. **Supply and demand of the whole Rarible ecosystem** Rarible is one of the biggest NFT marketplaces out there with over $64 million in total lifetime volume and 57k monthly protocol users, slick UX, and a variety of use cases across industries. You can utilize the shared order book with Rarible.
