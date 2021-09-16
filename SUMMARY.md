@@ -31,6 +31,11 @@
 
 * [Picnic](example-projects/picnic.md)
 
+## Use Cases
+
+* [CoCo NFT](use-cases/use-case-CocoNFT.md)
+* [MintGate](use-cases/use-case_MintGate.md)
+
 ## Resources
 
 * [Edit these docs](https://github.com/rarible/protocol-documentation)
