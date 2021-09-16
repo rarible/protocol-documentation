@@ -4,7 +4,7 @@
 * [Contract Addresses](contract-addresses.md)
 * [Tutorials](tutorials.md)
 * [Starter App](starter-app.md)
-* [Ethereum SDK](SDK.md)
+* [Ethereum SDK](sdk.md)
 
 ## Assets <a id="asset"></a>
 
@@ -34,12 +34,12 @@
 
 ## Use Cases
 
-* [CoCo NFT](use-cases/use-case-CocoNFT.md)
-* [MintGate](use-cases/use-case_MintGate.md)
+* [CoCo NFT](use-cases/use-case-coconft.md)
+* [MintGate](use-cases/use-case_mintgate.md)
 
 ## Resources
 
-* [Edit these docs](https://github.com/rarible/protocol-documentation)
+* [Edit these docs\(test\)](https://github.com/rarible/protocol-documentation)
 * [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
 * [Submit a question](https://github.com/rarible/protocol-issues/discussions)
 
