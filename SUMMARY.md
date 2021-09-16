@@ -39,7 +39,7 @@
 
 ## Resources
 
-* [Edit these docs\(test\)](https://github.com/rarible/protocol-documentation)
+* [Edit these docs](https://github.com/rarible/protocol-documentation)
 * [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
 * [Submit a question](https://github.com/rarible/protocol-issues/discussions)
 
