@@ -1,2 +1,2 @@
-# Pre-production variant
+# Landing page \( -- Rarible Protocol Overview\)
 

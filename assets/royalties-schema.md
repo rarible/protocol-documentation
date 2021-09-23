@@ -1,0 +1,2 @@
+# Royalties Schema
+
