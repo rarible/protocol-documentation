@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Landing page \( -- Rarible Protocol Overview\)](README.md)
+* [Landing page](README.md)
 * [Use Cases](use-cases.md)
 * [Get Started](get-started.md)
 * [Get involved](get-involved.md)
@@ -27,6 +27,20 @@
 
 * [Exchange Overview](exchange-overview.md)
 * [Creating a sell order](creating-a-sell-order.md)
+* [Order Discovery](order-discovery.md)
+* [Accepting a Buy Order](accepting-a-buy-order.md)
+* [Updating/Cancelling an Order](updating-cancelling-an-order.md)
+* [Contract Wallets](contract-wallets.md)
+
+## Smart Contracts
+
+* [Arhitecture](smart-contracts/arhitecture.md)
+* [Matching Orders](smart-contracts/matching-orders.md)
 
 ## Useful links and tools
+
+---
+
+* [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
+* [Submit a question](https://github.com/rarible/protocol-issues/discussions)
 
