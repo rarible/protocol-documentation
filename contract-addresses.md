@@ -6,7 +6,7 @@ description: >-
 
 # Contract Addresses
 
-## Ropsten
+## Ropsten \(is known to be less reliable\)
 
 ### Asset Contract ERC721    0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05[↗](https://ropsten.etherscan.io/address/0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05)
 
@@ -22,7 +22,7 @@ description: >-
 
 ### ERC1155 Token Factory [↗](https://ropsten.etherscan.io/address/0x7e7f1C09B2B64f882c3e23D704317f7afF5822B9)
 
-## Rinkeby
+## Rinkeby \(is known to usually be more reliable than Ropsten\)
 
 ### Asset Contract ERC721    0x6ede7f3c26975aad32a475e1021d8f6f39c89d82[↗](https://rinkeby.etherscan.io/address/0x6ede7f3c26975aad32a475e1021d8f6f39c89d82)
 
