@@ -1,7 +1,7 @@
 # Table of contents
 
 * [Landing page](README.md)
-* [Project Ideas](use-cases.md)
+* [Project Ideas](project-ideas.md)
 * [Get Started](get-started.md)
 * [Get involved](get-involved.md)
 * [Projects using Rarible](projects-using-rarible.md)
