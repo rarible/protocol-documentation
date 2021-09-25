@@ -1,7 +1,6 @@
 # Table of contents
 
 * [Landing page](README.md)
-* [Project Ideas](project-ideas.md)
 * [Get Started](get-started.md)
 * [Get involved](get-involved.md)
 * [Projects using Rarible](projects-using-rarible.md)
@@ -11,6 +10,7 @@
 
 * [Tutorials](tutorials-and-guides/tutorials-and-guides/README.md)
   * [Setting up Royalties on an External Collection](tutorials-and-guides/tutorials-and-guides/royalties-on-external-collection.md)
+* [Project Ideas](tutorials-and-guides/project-ideas.md)
 * [Starter App](tutorials-and-guides/starter-app.md)
 * [Examples](tutorials-and-guides/examples.md)
 
