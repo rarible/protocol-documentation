@@ -48,6 +48,8 @@ description: >-
 
 ### External Royalties    0xEa90CFad1b8e030B8Fd3E63D22074E0AEb8E0DCD [↗](https://etherscan.io/address/0xEa90CFad1b8e030B8Fd3E63D22074E0AEb8E0DCD#code)
 
+### NFT Transfer Proxy \(for Approvals\) 0x4fee7b061c97c9c496b01dbce9cdb10c02f0a0be [↗](https://etherscan.io/address/0x4fee7b061c97c9c496b01dbce9cdb10c02f0a0be)
+
 ### ERC721 Token Factory [↗](https://etherscan.io/address/0x6d9dd3547baf4c190ab89e0103c363feaf325eca)
 
 ### ERC1155 Token Factory [↗](https://etherscan.io/address/0x81243681078bEE8e251D02Ee6872b1EAa6DD982A)
