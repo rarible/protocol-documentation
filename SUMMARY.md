@@ -3,7 +3,7 @@
 * [Landing page](README.md)
 * [Get Started](get-started/README.md)
   * [DAO Contributors](get-started/dao-contributors/README.md)
-    * [--- 1](get-started/dao-contributors/1.md)
+    * [Members](get-started/dao-contributors/1.md)
     * [--- 2](get-started/dao-contributors/2.md)
   * [Grant Information](get-started/grant-information/README.md)
     * [--- 1](get-started/grant-information/1.md)
