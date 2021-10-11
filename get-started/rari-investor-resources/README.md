@@ -1,2 +1,0 @@
-# $RARI Investor Resources
-
