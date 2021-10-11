@@ -4,10 +4,10 @@
 
 Rarible defines an interface to query royalties from a contract. This is implemented on the standard [Rarible token contracts](https://github.com/rariblecom/protocol-contracts/blob/57043e3f9e93223ef9d65dae351d3c55b34e5bf1/tokens/contracts/erc-721/ERC721Lazy.sol#L12).
 
-It exposes a [method](https://github.com/rariblecom/protocol-contracts/blob/57043e3f9e93223ef9d65dae351d3c55b34e5bf1/royalties/contracts/impl/AbstractRoyalties.sol#L8) called `getRoyalties` which expects an ID as input \(usually tokenId\) and returns an array of accounts & basis points.
+It exposes a [method](https://github.com/rariblecom/protocol-contracts/blob/57043e3f9e93223ef9d65dae351d3c55b34e5bf1/royalties/contracts/impl/AbstractRoyalties.sol#L8) called `getRoyalties` which expects an ID as input (usually tokenId) and returns an array of accounts & basis points.
 
-```text
-    function getRoyalties(uint256 id) override external view returns (LibPart.Part[] memory) {
+```
+    function getRaribleV2Royalties(uint256 id) override external view returns (LibPart.Part[] memory) {
         return royalties[id];
     }
 ```
@@ -22,7 +22,7 @@ Rarible Protocol Supports on-chain Royalties, these are handled in the ExchangeV
 
 This tuple is made up of two variables, fees.recipient & fees.value.
 
-fees.recipient refers to either the item owner \(By default\) or an address where the Royalties will be received.
+fees.recipient refers to either the item owner (By default) or an address where the Royalties will be received.
 
 fees.value is the royalties percentage, by default this value is 1000 on Rarible which is a 10% royalties fee. This is done using basis points, more information regarding basis point can be found [here](https://corporatefinanceinstitute.com/resources/knowledge/finance/basis-point-beep/).
 
@@ -45,4 +45,3 @@ contract HasSecondarySaleFees is ERC165 {
     function getFeeBps(uint256 id) public view returns (uint[] memory);
 }
 ```
-
