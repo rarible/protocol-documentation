@@ -37,10 +37,5 @@
 
 ***
 
+* [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
 * [Submit a question](https://github.com/rarible/protocol-issues/discussions)
-
-## Assets <a href="assets-1" id="assets-1"></a>
-
-* [Concepts](assets-1/concepts.md)
-* [Tutorials and Guides](assets-1/tutorials-and-guides.md)
-* [Reference Information](assets-1/reference-information.md)
