@@ -1,2 +1,0 @@
-# Accepting a Buy Order
-

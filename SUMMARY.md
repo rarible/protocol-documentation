@@ -14,34 +14,29 @@
 * [Starter App](tutorials-and-guides/starter-app.md)
 * [Examples](tutorials-and-guides/examples.md)
 
-## Assets
-
-* [Asset Creation](assets/asset-creation.md)
-* [Token Factories](assets/token-factories.md)
-* [Royalties Schema](assets/royalties-schema.md)
-* [Asset Discovery](assets/asset-discovery.md)
-
-## Exchange
-
 ***
 
-* [Exchange Overview](exchange-overview.md)
-* [Creating a sell order](creating-a-sell-order.md)
-* [Order Discovery](order-discovery.md)
-* [Accepting a Buy Order](accepting-a-buy-order.md)
-* [Updating/Cancelling an Order](updating-cancelling-an-order.md)
-* [Contract Wallets](contract-wallets.md)
-
-## Smart Contracts
-
-* [Arhitecture](smart-contracts/arhitecture.md)
-* [Matching Orders](smart-contracts/matching-orders.md)
+* [Assets](assets/README.md)
+  * [Concepts](assets/concepts.md)
+  * [Tutorials and Guides](assets/tutorials-and-guides-1.md)
+  * [Reference Information](assets/reference-information.md)
+* [Exchange](exchange/README.md)
+  * [Concepts](exchange/concepts.md)
+  * [Tutorials and Guides](exchange/tutorials-and-guides.md)
+  * [Reference Information](exchange/reference-information.md)
+* [Smart Contracts](smart-contracts/README.md)
+  * [Concepts](smart-contracts/concepts.md)
+  * [Tutorials and Guides](smart-contracts/tutorials-and-guides.md)
+  * [Reference Information](smart-contracts/reference-information.md)
+* [SDK](sdk/README.md)
+  * [Concepts](sdk/concepts.md)
+  * [Tutorials and Guides](sdk/tutorials-and-guides.md)
+  * [Reference Information](sdk/reference-information.md)
 
 ## Useful links and tools
 
 ***
 
-* [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
 * [Submit a question](https://github.com/rarible/protocol-issues/discussions)
 
 ## Assets <a href="assets-1" id="assets-1"></a>
@@ -49,7 +44,3 @@
 * [Concepts](assets-1/concepts.md)
 * [Tutorials and Guides](assets-1/tutorials-and-guides.md)
 * [Reference Information](assets-1/reference-information.md)
-* [Assets](assets-1/assets/README.md)
-  * [Concepts](assets-1/assets/concepts.md)
-  * [Tutorials and Guides](assets-1/assets/tutorials-and-guides-1.md)
-  * [Reference Information](assets-1/assets/reference-information.md)
