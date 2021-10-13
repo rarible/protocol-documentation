@@ -6,8 +6,9 @@ We use Rarible to help us identify NFTs from creators and collectors in the [Pic
 
 The following endpoints can be used:
 
-* **Production:** [https://api.rarible.com/](https://api.rarible.com/)
-* **Staging \(Rinkeby/Ropsten\):** [https://api-staging.rarible.com/](https://api-staging.rarible.com/)
+* **Production(Mainnet, Chain ID: 1):** https://ethereum-api.rarible.org
+* **Staging (Ropsten, Chain ID: 3):** https://ethereum-api-dev.rarible.org
+* **Staging (Rinkeby, Chain ID:4):** https://ethereum-api-staging.rarible.org
 
 ### Getting Tokens by Owner
 
@@ -70,4 +71,3 @@ const fetchTokenMetadata = async id => {
 ```
 
 If you have question, please reach out. greg@picnic.show / [@gleuch](https://twitter.com/gleuch)
-
