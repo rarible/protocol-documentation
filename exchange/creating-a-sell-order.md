@@ -18,9 +18,9 @@ The approval on the transfer proxy only needs to be called if a previous approva
 
 **First** Encode the order for signing
 
-POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/encoder/order`
+POST to `https://ethereum-api-staging.rarible.org/v0.1/order/encoder/order`
 
-```text
+```
 {
     "type": "RARIBLE_V2",
     "maker": "0x744222844bFeCC77156297a6427B5876A6769e19",
@@ -49,7 +49,7 @@ POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/encoder/or
 
 Response:
 
-```text
+```
 {
     "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
     "makeAsset": {
@@ -77,7 +77,7 @@ Response:
 
 **Then** Sign the order
 
-```text
+```
 async function sign(provider, order, account, verifyingContract) {
     const chainId = Number(provider._network.chainId);
     const data = EIP712.createTypeData({
@@ -93,11 +93,11 @@ async function sign(provider, order, account, verifyingContract) {
 
 **Step 3. Send order with signature to our API**
 
-POST to `https://api-staging.rarible.com/protocol/v0.1/ethereum/order/orders`
+POST to `https://ethereum-api-staging.rarible.org/v0.1/order/orders`
 
 Payload
 
-```text
+```
 {
     "type": "RARIBLE_V2",
     "maker": "0x744222844bFeCC77156297a6427B5876A6769e19",
@@ -127,7 +127,7 @@ Payload
 
 Response
 
-```text
+```
 {
     "maker": "0x744222844bfecc77156297a6427b5876a6769e19",
     "make": {
@@ -167,4 +167,3 @@ Response
 {% hint style="info" %}
 In order to get latest information about API, please follow [OpenAPI doc](https://api-reference.rarible.com/#operation/createOrUpdateOrder) for createOrUpdateOrder
 {% endhint %}
-

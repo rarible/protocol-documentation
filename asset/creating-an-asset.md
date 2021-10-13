@@ -8,7 +8,7 @@ description: >-
 
 ## Asset Introduction
 
-Rarible protocol has two asset types, ERC721, and ERC1155, the main difference between them is that ERC721 creates unique 1 of 1 item, whereas ERC1155, allows the user to create an item with multiple editions \(The maximum amount of editions is 2\*\*256 - 1\).
+Rarible protocol has two asset types, ERC721, and ERC1155, the main difference between them is that ERC721 creates unique 1 of 1 item, whereas ERC1155, allows the user to create an item with multiple editions (The maximum amount of editions is 2\*\*256 - 1).
 
 You can find the protocol smart contracts [here.](https://github.com/rariblecom/protocol-contracts)
 
@@ -16,13 +16,13 @@ You can find the protocol smart contracts [here.](https://github.com/rariblecom/
 
 #### Asset Contract ERC721 [Etherscan link ↗](https://ropsten.etherscan.io/address/0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05)
 
-```text
+```
 0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05
 ```
 
 #### Asset Contract ERC1155 [Etherscan link ↗](https://ropsten.etherscan.io/address/0x6a94aC200342AC823F909F142a65232E2f052183)
 
-```text
+```
 0x6a94aC200342AC823F909F142a65232E2f052183
 ```
 
@@ -30,13 +30,13 @@ You can find the protocol smart contracts [here.](https://github.com/rariblecom/
 
 #### Asset Contract ERC721 [Etherscan link ↗](https://rinkeby.etherscan.io/address/0x6ede7f3c26975aad32a475e1021d8f6f39c89d82)
 
-```text
+```
 0x6ede7f3c26975aad32a475e1021d8f6f39c89d82
 ```
 
 #### Asset Contract ERC1155 [Etherscan link ↗](https://rinkeby.etherscan.io/address/0x1AF7A7555263F275433c6Bb0b8FdCD231F89B1D7)
 
-```text
+```
 0x1AF7A7555263F275433c6Bb0b8FdCD231F89B1D7
 ```
 
@@ -56,7 +56,7 @@ The `tokenId` must be supplied as a uint256, which is a unique identifying numbe
 
 The `tokenId` is made up of two sections, the first 20 bytes is the user's address and the next 12 bytes can be any random number. [This API](https://api-reference.rarible.com/#operation/generateTokenId) will allow you to get the next available ID.
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  uri
 
@@ -70,13 +70,13 @@ This is the suffix for the tokenURI. The prefix for Rarible protocol contracts i
 
 `ipfs://ipfs/QmWLsBu6nS4ovaHbGAXprD1qEssJu4r5taQfB74sCG51tp`
 
-**Note:** If you are not storing your metadata on IPFS, you will need to create your own custom collection contract instead of using the protocol's asset contracts. See **Implementation** for details. &lt;/p&gt; &lt;/details&gt;
+**Note:** If you are not storing your metadata on IPFS, you will need to create your own custom collection contract instead of using the protocol's asset contracts. See **Implementation** for details. \</p> \</details>
 
  creators
 
 `creators` is an array of addresses and values. The `LibPart.Part` struct it derives from is provided below.
 
-```text
+```
 struct Part {
     address payable account;
     uint96 value;
@@ -85,17 +85,17 @@ struct Part {
 
 This array should contain all the addresses of the creators of this token with their respective ownership or contribution to the creation - in basis points. The address array is public and can be queried by anyone.
 
-Sum of the fields value in this array should be 10000 \(100% in basis points\). Can be divided in any number of ways.
+Sum of the fields value in this array should be 10000 (100% in basis points). Can be divided in any number of ways.
 
 I.e. The following array, `[[0x12345..., 5000], [0x6789..., 5000]]`, associates the creation of the given NFT to 2 creators at an equal 50% distribution.
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  royalties
 
 `royalties` is an array of addresses and values. Like `creators`, it's also derived from the `LibPart.Part` struct provided below.
 
-```text
+```
 struct Part {
     address payable account;
     uint96 value;
@@ -106,7 +106,7 @@ The fees array is public and can be queried by anyone. Values are specified in b
 
 I.e. One address recieves 20% royalties with the following array, `[[0x12345..., 2000]]`. But more than one address can be provided to recieve royalties at specified percentages.
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  signatures
 
@@ -114,12 +114,12 @@ I.e. One address recieves 20% royalties with the following array, `[[0x12345...,
 
 However, an empty signature, `[[0x]]`, can be passed if the creator is minting immediately instead of creating a Lazy Mint. The steps for standard minting are provided in **ERC721 Standard Minting**.
 
-&lt;/p&gt; &lt;/details&gt;   
+\</p> \</details> \
 
 
 **ERC721 mintAndTransfer ABI**
 
-```text
+```
     // ABI for ERC-721 mintAndTransfer
     {
       "inputs": [
@@ -200,15 +200,15 @@ Lazy minting requires the creator's signature in order to allow minting of their
 
 We'll go through the steps of getting the creator's signature and creating a lazy mint below. You can also find various code implementations for lazy minting [here](https://github.com/ipatka/scaffold-eth/tree/rarible-starter-app), [here](https://github.com/MysteryDrop/mystery-drop/tree/master/packages/react-app/src/util), and [here](https://github.com/evgenynacu/sign-typed-data).
 
-#### For 721 \(Ropsten\)
+#### For 721 (Ropsten)
 
 **Step 1**: Generate a token ID.
 
 * Since a lazy mint is stored off-chain, it's necessary to generate a token ID through this API to ensure you get the next available token ID since there's no certainty about when the NFT will actually be minted.
 
-GET from `https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/collections/{ContractAddress}/generate_token_id?minter=${account}`
+GET from `https://ethereum-api-staging.rarible.org/v0.1/nft/collections/{ContractAddress}/generate_token_id?minter=${account}`
 
-```text
+```
 // Sample Call 
 
 const res = await fetch('https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/collections/{ContractAddress}/generate_token_id?minter=${creator}').then((res) => res.json());
@@ -216,7 +216,7 @@ const res = await fetch('https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/
 
 Response
 
-```text
+```
 {
     tokenId: "10269532675691974816893214588076010230265315839066808147818573374451427049545", 
     signature: {
@@ -231,7 +231,7 @@ Get the `tokenId` from the response object.
 
 **Step 2**: Create the Lazy Mint Request Body to be signed by the creator
 
-```text
+```
 {
     "@type": "ERC721",
     "contract": "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05",
@@ -258,7 +258,7 @@ _Note_ See [EIP1271](../exchange/contract-wallets.md) for information on how sma
 
 **First**, construct the typed data structure:
 
-```text
+```
 "types": {
     "EIP712Domain" [
       {
@@ -319,7 +319,7 @@ _Note_ See [EIP1271](../exchange/contract-wallets.md) for information on how sma
 
 **Then** provide the data structure above to the creator for signing.
 
-```text
+```
 // Sample code
 
 async function signTypedData(web3Provider, from, dataStructure) {
@@ -343,7 +343,7 @@ async function signTypedData(web3Provider, from, dataStructure) {
 
 E.g.
 
-```text
+```
 {
     "@type": "ERC721",
     "contract": "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05",
@@ -369,7 +369,7 @@ E.g.
 
 POST to `https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/mints`
 
-```text
+```
 {
     "@type": "ERC721",
     "contract": "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05",
@@ -393,7 +393,7 @@ POST to `https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/mints`
 
 Response
 
-```text
+```
 {
   "id": ""0x3437df037bbbeb1aa3e417b32154bc2bb5da1c04:10269532675691974816893214588076010230265315839066808147818573374451427049549"",
   "contract": "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05",
@@ -429,7 +429,7 @@ Response
 }
 ```
 
-You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉   
+You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉 \
 
 
 ### ERC721 Standard Minting
@@ -438,7 +438,7 @@ You can mint NFTs through the Rarible asset contracts using `mintAndTransfer` li
 
 `mintAndTransfer(LibERC721LazyMint.Mint721Data memory data, address to)`
 
-```text
+```
 struct Mint721Data {
  uint tokenId;
  string uri;
@@ -489,7 +489,7 @@ async function mintNow() {
 
 **Mint1155Data Parameter Structure**
 
-```text
+```
 struct Mint1155Data {
  uint tokenId;
  string uri;
@@ -508,7 +508,7 @@ The `tokenId` must be supplied as a uint256, which is a unique identifying numbe
 
 The `tokenId` is made up of two sections, the first 20 bytes is the user's address and the next 12 bytes can be any random number. [This API](https://api-reference.rarible.com/#operation/generateTokenId) will allow you to get the next available ID.
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  uri
 
@@ -522,19 +522,19 @@ This is the suffix for the tokenURI. The prefix for Rarible protocol contracts i
 
 `ipfs://ipfs/QmWLsBu6nS4ovaHbGAXprD1qEssJu4r5taQfB74sCG51tp`
 
-**Note:** If you are not storing your metadata on IPFS, you will need to create your own custom collection contract instead of using the protocol's asset contracts. See **Implementation** for details. &lt;/p&gt; &lt;/details&gt;
+**Note:** If you are not storing your metadata on IPFS, you will need to create your own custom collection contract instead of using the protocol's asset contracts. See **Implementation** for details. \</p> \</details>
 
  supply
 
-`supply` should be a uint256, this is the number of copies \(or Editions\) of this token that will ever exist. \(Maximum value is 2\*\*256 - 1\).
+`supply` should be a uint256, this is the number of copies (or Editions) of this token that will ever exist. (Maximum value is 2\*\*256 - 1).
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  creators
 
 `creators` is an array of addresses and values. The `LibPart.Part` struct it derives from is provided below.
 
-```text
+```
 struct Part {
     address payable account;
     uint96 value;
@@ -543,17 +543,17 @@ struct Part {
 
 This array should contain all the addresses of the creators of this token with their respective ownership or contribution to the creation - in basis points. The address array is public and can be queried by anyone.
 
-Sum of the fields value in this array should be 10000 \(100% in basis points\). Can be divided in any number of ways.
+Sum of the fields value in this array should be 10000 (100% in basis points). Can be divided in any number of ways.
 
 I.e. The following array, `[[0x12345..., 5000], [0x6789..., 5000]]`, associates the creation of the given NFT to 2 creators at an equal 50% distribution.
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  royalties
 
 `royalties` is an array of addresses and values. Like `creators`, it's also derived from the `LibPart.Part` struct provided below.
 
-```text
+```
 struct Part {
     address payable account;
     uint96 value;
@@ -564,7 +564,7 @@ The fees array is public and can be queried by anyone. Values are specified in b
 
 I.e. One address recieves 20% royalties with the following array, `[[0x12345..., 2000]]`. But more than one address can be provided to recieve royalties at specified percentages.
 
-&lt;/p&gt; &lt;/details&gt;
+\</p> \</details>
 
  signatures
 
@@ -572,12 +572,12 @@ I.e. One address recieves 20% royalties with the following array, `[[0x12345...,
 
 However, an empty signature, `[[0x]]`, can be passed if the creator is minting immediately instead of creating a Lazy Mint. The steps for standard minting are provided in **ERC1155 Standard Minting**.
 
-&lt;/p&gt; &lt;/details&gt;   
+\</p> \</details> \
 
 
 **ERC1155 mintAndTransfer ABI**
 
-```text
+```
     // ABI for ERC-1155 mintAndTransfer
     {
       "inputs": [
@@ -668,7 +668,7 @@ Lazy minting requires the creator's signature in order to allow minting of their
 
 We'll go through the steps of getting the creator's signature and creating a lazy mint below. You can also find various code implementations for lazy minting [here](https://github.com/ipatka/scaffold-eth/tree/rarible-starter-app), [here](https://github.com/MysteryDrop/mystery-drop/tree/master/packages/react-app/src/util), and [here](https://github.com/evgenynacu/sign-typed-data).
 
-#### For 1155 \(Ropsten\)
+#### For 1155 (Ropsten)
 
 **Step 1**: Generate a token ID.
 
@@ -676,7 +676,7 @@ We'll go through the steps of getting the creator's signature and creating a laz
 
 GET from `https://api-staging.rarible.com/protocol/v0.1/ethereum/nft/collections/{ContractAddress}/ generate_token_id?minter=${account}`
 
-```text
+```
 // Sample Call 
 
 const res = await fetch('https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/collections/{ContractAddress}/generate_token_id?minter={creator}').then((res) => res.json());
@@ -684,7 +684,7 @@ const res = await fetch('https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/
 
 Response
 
-```text
+```
 {
     tokenId: "10269532675691974816893214588076010230265315839066808147818573374451427049545", 
     signature: {
@@ -699,7 +699,7 @@ Get the `tokenId` from the response object.
 
 **Step 2**: Create the Lazy Mint Request Body to be signed by the creator
 
-```text
+```
 {
     "@type": "ERC1155",
     "contract": "0x6a94aC200342AC823F909F142a65232E2f052183 ",
@@ -727,7 +727,7 @@ _Note_ See [Signatures](https://hackmd.io/ktJuljjGTA2TivezBXKA5g?view#Signatures
 
 **First**, construct the typed data structure:
 
-```text
+```
 "types": {
     "EIP712Domain" [
       {
@@ -790,7 +790,7 @@ _Note_ See [Signatures](https://hackmd.io/ktJuljjGTA2TivezBXKA5g?view#Signatures
 
 **Then** provide the data structure above to the creator for signing.
 
-```text
+```
 // Sample code
 
 async function signTypedData(web3Provider, from, dataStructure) {
@@ -814,7 +814,7 @@ async function signTypedData(web3Provider, from, dataStructure) {
 
 E.g.
 
-```text
+```
 {
     "@type": "ERC1155",
     "contract": "0x6a94aC200342AC823F909F142a65232E2f052183 ",
@@ -841,7 +841,7 @@ E.g.
 
 POST to `https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/mints`
 
-```text
+```
 {
     "@type": "ERC721",
     "contract": "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05",
@@ -866,7 +866,7 @@ POST to `https://api-dev.rarible.com/protocol/v0.1/ethereum/nft/mints`
 
 Response
 
-```text
+```
 {
   "id": ""0x3437df037bbbeb1aa3e417b32154bc2bb5da1c04:10269532675691974816893214588076010230265315839066808147818573374451427049549"",
   "contract": "0xB0EA149212Eb707a1E5FC1D2d3fD318a8d94cf05",
@@ -902,7 +902,7 @@ Response
 }
 ```
 
-You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉   
+You've successfully created a Lazy Minted NFT with the Rarible Protocol! 🎉 \
 
 
 ### ERC1155 Standard Minting
@@ -911,7 +911,7 @@ You can mint NFTs through the Rarible asset contracts using `mintAndTransfer` li
 
 `mintAndTransfer(LibERC1155LazyMint.Mint1155Data memory data, address to, uint256 _amount)`
 
-```text
+```
 struct Mint1155Data {
  uint tokenId;
  string uri;
@@ -1002,7 +1002,7 @@ This will return our IPFS CID, the full response looks like this:
 
 ### Creating our NFT's Metadata
 
-Now that we have our IPFS CID \(Called hash here on out\), we can begin constructing our NFT's Metadata file that will be linked to the NFT on-chain. Below is a Metadata file with an explanation of the key and its value.
+Now that we have our IPFS CID (Called hash here on out), we can begin constructing our NFT's Metadata file that will be linked to the NFT on-chain. Below is a Metadata file with an explanation of the key and its value.
 
 ```javascript
 {
@@ -1024,7 +1024,7 @@ Now that we have our IPFS CID \(Called hash here on out\), we can begin construc
 
 ### Adding Generated Metadata to IPFS
 
-First, we need to make sure our `external_url` is a Rarible link. We can calculate this link based on the tokenId we create \(The tokenId typically is made up of two sections, the first 20 bytes in the users' address and the next 12 bytes can be any random number. We will provide an API to allow you to get the next free available ID.\), for this example, our external\_url must be the collection address + tokenId and it will look like this
+First, we need to make sure our `external_url` is a Rarible link. We can calculate this link based on the tokenId we create (The tokenId typically is made up of two sections, the first 20 bytes in the users' address and the next 12 bytes can be any random number. We will provide an API to allow you to get the next free available ID.), for this example, our external_url must be the collection address + tokenId and it will look like this
 
 ```javascript
 "external_url": "https://app.rarible.com/0x60f80121c31a0d46b5279700f9df786054aa5ee5:123913"
@@ -1083,4 +1083,3 @@ In many cases, it may be easier and faster to just [fork the protocol contracts]
 _Note_ You can supply your own `tokenId` instead of getting one from the API call used for Lazy Minting when rolling your own contracts, however, the token id needs to have the minter's address followed by 96 bits, which can include any number you want, in order to pass the `require` checks in the default `mintAndTransfer` function. Alternatively, you can still use the generate token id API used above to supply a tokenId for them.
 
 **YAY! Your NFT is now minted! Visit the next section on** [**how to create a sell order**](../exchange/creating-a-sell-order.md) **or to check if your Asset is indexed you can** [**view this page**](https://github.com/rariblecom/protocol-documentation/tree/3f1c8c9f6c98ecb68caeab3c6778338ec28d979a/asset-discovery.md)**.**
-
