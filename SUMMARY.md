@@ -37,5 +37,6 @@
 
 ***
 
+* [Update Log](update-log.md)
 * [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
 * [Submit a question](https://github.com/rarible/protocol-issues/discussions)
