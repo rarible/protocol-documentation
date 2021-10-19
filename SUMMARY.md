@@ -6,7 +6,7 @@
 * [Starter App](starter-app.md)
 * [Ethereum SDK](sdk.md)
 
-## Assets <a id="asset"></a>
+## Assets <a href="asset" id="asset"></a>
 
 * [Asset Creation](asset/creating-an-asset.md)
 * [Token Factories](asset/token-factories.md)
@@ -35,10 +35,10 @@
 ## Use Cases
 
 * [CoCo NFT](use-cases/use-case-coconft.md)
-* [MintGate](use-cases/use-case_mintgate.md)
+* [MintGate](use-cases/use-case\_mintgate.md)
 
 ## Resources
 
 * [Submit a feature request](https://github.com/rarible/protocol-issues/issues)
 * [Submit a question](https://github.com/rarible/protocol-issues/discussions)
-
+* [Glossary](resources/glossary.md)

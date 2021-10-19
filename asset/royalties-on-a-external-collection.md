@@ -28,7 +28,7 @@ Below is an example of a tuple which gives the user (**0x6C1AaC9EAd0a2c0D328309f
 
 In the screenshot **below** you can see that on the **collection (0x4008c2482357632b06526b492c143f4e73ff1b0d)** the **user (0x6C1AaC9EAd0a2c0D328309fbb2cf940F49d26126)** receives** 2.5% (250) Royalties.**
 
-![](<../.gitbook/assets/image (2).png>)
+![](<../.gitbook/assets/image (3) (1).png>)
 
 Now we can go ahead and click on write which will bring up your connected wallet and ask you to pay gas fees to execute a transaction.&#x20;
 
@@ -38,6 +38,6 @@ Now that Royalties have been set up, royalties will be paid out on every sale in
 \
 Below is an example of a purchase transaction with annotations on what each fee is for:
 
-![](<../.gitbook/assets/image (5).png>)
+![](<../.gitbook/assets/image (6) (1).png>)
 
 You now have royalties across Rarible Protocol Platforms, Congratulations!
