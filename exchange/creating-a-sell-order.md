@@ -43,7 +43,8 @@ POST to `https://ethereum-api-staging.rarible.org/v0.1/order/encoder/order`
         "payouts": [],
         "originFees": []
     },
-    "salt": "3621"
+    "salt": "3621",
+    "signature": "",
 }
 ```
 
